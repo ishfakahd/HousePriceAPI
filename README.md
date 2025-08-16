@@ -61,6 +61,7 @@ The API predicts house prices using simple numerical features:
 ## **Project Structure**
 
 HousePriceAPI/
+
 ├── main.py # FastAPI application
 
 ├── train_model.py # Script to train and save the ML model
@@ -83,7 +84,7 @@ HousePriceAPI/
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone [<your-repo-url>](https://github.com/ishfakahd/HousePriceAPI.git)
 cd HousePriceAPI
 
 2. Install dependencies

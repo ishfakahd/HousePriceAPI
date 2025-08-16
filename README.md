@@ -62,12 +62,19 @@ The API predicts house prices using simple numerical features:
 
 HousePriceAPI/
 ├── main.py # FastAPI application
+
 ├── train_model.py # Script to train and save the ML model
+
 ├── housing.csv # Dataset (Kaggle)
+
 ├── house_price_model.pkl # Saved trained model
+
 ├── house_features.pkl # Saved feature list
+
 ├── requirements.txt # Dependencies
+
 └── README.md # Project documentation
+
 
 
 ---

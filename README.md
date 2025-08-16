@@ -1,79 +1,94 @@
-House Price Prediction API
+# 🏠 House Price Prediction API
 
-Version 0.1.0
+[![Python](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.95-green)](https://fastapi.tiangolo.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
 
-Project Overview
+**Version:** 0.1.0  
 
-This project is a Machine Learning API built with FastAPI to predict house prices based on selected features.
-It uses a Linear Regression model trained on the Kaggle Housing Prices dataset.
+---
 
-The API provides endpoints for inference, model information, and health checks.
+## **Table of Contents**
+1. [Project Overview](#project-overview)
+2. [Problem Description](#problem-description)
+3. [Model Choice](#model-choice)
+4. [Project Structure](#project-structure)
+5. [Setup & Installation](#setup--installation)
+6. [API Endpoints](#api-endpoints)
+7. [Example Requests](#example-requests)
+8. [Assumptions & Limitations](#assumptions--limitations)
+9. [Dependencies](#dependencies)
 
-Problem Description
+---
 
-Predict house prices using simple numerical features.
+## **Project Overview**
 
+This project is a **Machine Learning API** built with **FastAPI** to predict house prices based on selected numerical features.  
 
-Input features:
+- **Model:** Linear Regression  
+- **Dataset:** [Kaggle Housing Prices Dataset](https://www.kaggle.com/datasets/yasserh/housing-prices-dataset)  
+- **Functionality:** Provides API endpoints for:  
+  1. Inference (predict house prices)  
+  2. Model information  
+  3. Health checks  
 
-area – House area in square feet
+---
 
-bedrooms – Number of bedrooms
+## **Problem Description**
 
-bathrooms – Number of bathrooms
+The API predicts house prices using simple numerical features:
 
-Output:
+| Feature    | Description                     |
+|------------|---------------------------------|
+| area       | House area in square feet       |
+| bedrooms   | Number of bedrooms             |
+| bathrooms  | Number of bathrooms            |
 
-prediction – Estimated house price
+**Output:**  
+- `prediction` – Estimated house price
 
-Dataset: Kaggle Housing Prices Dataset
+---
 
-Model Choice
+## **Model Choice**
 
-Model: Linear Regression
+- **Model:** Linear Regression  
+- **Reason:** Simple regression model suitable for predicting continuous values like house prices.  
+- **Features Used:** `area`, `bedrooms`, `bathrooms`  
+- **Evaluation:** R² score printed during training  
 
-Reason: Simple regression model suitable for predicting continuous values like house prices.
+---
 
-Trained on the Kaggle dataset using area, bedrooms, and bathrooms as features.
+## **Project Structure**
 
-Model evaluation: R² score on test data (printed during training).
-
-
-Project Structure
 HousePriceAPI/
-├── main.py                # FastAPI application
-├── train_model.py         # Script to train and save the ML model
-├── housing.csv            # Dataset (Kaggle)
-├── house_price_model.pkl  # Saved trained model
-├── house_features.pkl     # Saved feature list
-├── requirements.txt       # Dependencies
-└── README.md              # Project documentation
+├── main.py # FastAPI application
+├── train_model.py # Script to train and save the ML model
+├── housing.csv # Dataset (Kaggle)
+├── house_price_model.pkl # Saved trained model
+├── house_features.pkl # Saved feature list
+├── requirements.txt # Dependencies
+└── README.md # Project documentation
 
-Setup & Installation
 
-Clone the repository:
+---
 
+## **Setup & Installation**
+
+### 1. Clone the repository
+```bash
 git clone <your-repo-url>
 cd HousePriceAPI
 
-
-Install dependencies:
-
+2. Install dependencies
 pip install -r requirements.txt
 
-
-Train the model (optional if house_price_model.pkl already exists):
-
+3. Train the model (optional if house_price_model.pkl already exists)
 python train_model.py
 
-
-Run the FastAPI server:
-
+4. Run the FastAPI server
 python -m uvicorn main:app --reload
 
-
-Open the API docs in your browser:
-
+5. Open API docs in your browser
 http://127.0.0.1:8000/docs
 
 API Endpoints
@@ -81,7 +96,7 @@ API Endpoints
 
 GET /
 
-Returns API status.
+Returns API status
 
 Example Response:
 
@@ -94,7 +109,7 @@ Example Response:
 
 POST /predict
 
-Input: JSON with house features.
+Input: JSON with house features
 
 Request Body Example:
 
@@ -115,7 +130,7 @@ Response Example:
 
 GET /model-info
 
-Returns model type, problem type, and feature names.
+Returns model type, problem type, and feature names
 
 Response Example:
 
@@ -127,7 +142,7 @@ Response Example:
 
 Example Requests
 
-Example 1
+Example 1:
 
 {
   "area": 1500,
@@ -136,34 +151,10 @@ Example 1
 }
 
 
-Example 2
+Example 2:
 
 {
   "area": 2500,
   "bedrooms": 4,
   "bathrooms": 3
 }
-
-Assumptions & Limitations
-
-The dataset does not include the age of the house; only area, bedrooms, and bathrooms are used.
-
-Linear Regression assumes a linear relationship between features and price.
-
-Predictions may not generalize well to houses outside the dataset range.
-
-Dependencies
-
-Python 3.10+
-
-FastAPI
-
-Uvicorn
-
-scikit-learn
-
-pandas
-
-numpy
-
-joblib
